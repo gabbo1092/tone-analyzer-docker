@@ -1,0 +1,43 @@
+
+<!--Example tabs--->
+<div data-tabs class="bx--tabs tabs">
+    <div class="bx--tabs-trigger" tabindex="0">
+      <a href="javascript:void(0)" class="bx--tabs-trigger-text" tabindex="-1"></a>
+      <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M5 6L0 1 0.7 0.3 5 4.6 9.3 0.3 10 1z"></path></svg>
+    </div>
+    <ul class="bx--tabs__nav bx--tabs__nav--hidden" role="tablist">
+      <li class="bx--tabs__nav-item bx--tabs__nav-item--selected " data-target=".tab-1-default" role="tab" aria-selected="true" >
+        <a tabindex="0" id="tab-link-1-default" class="bx--tabs__nav-link" href="javascript:void(0)" role="tab" aria-controls="tab-panel-1-default">
+            Sample use cases
+        </a>
+      </li>
+      <li class="bx--tabs__nav-item " data-target=".tab-2-default" role="tab" >
+        <a tabindex="0" id="tab-link-2-default" class="bx--tabs__nav-link" href="javascript:void(0)" role="tab" aria-controls="tab-panel-2-default">
+            Freeform text
+        </a>
+      </li>
+      <li class="bx--tabs__nav-item " data-target=".tab-3-default" role="tab" >
+        <a tabindex="0" id="tab-link-3-default" class="bx--tabs__nav-link" href="javascript:void(0)" role="tab" aria-controls="tab-panel-3-default">
+            <img src='https://www.ovh.co.uk/images/hosting/postgreSQL/postgreSQL.jpg' style='margin-top:12px; margin-right:5px;width:25px; float:left;'/>
+            Speeches in postgres
+        </a>
+      </li>
+    </ul>
+</div>
+
+<!-- The markup below is for demonstration purposes only -->
+<div class="bx--tab-content">
+    <div id="tab-panel-1-default" class="tab-1-default" role="tabpanel" aria-labelledby="tab-link-1-default" aria-hidden="false" >
+        
+        <$- include('demo_body') $>
+
+    </div>
+    <div id="tab-panel-2-default" class="tab-2-default" role="tabpanel" aria-labelledby="tab-link-2-default" aria-hidden="true" hidden>
+        
+        <$- include('freeform_body') $>
+
+    </div>
+    <div id="tab-panel-3-default" class="tab-3-default" role="tabpanel" aria-labelledby="tab-link-3-default" aria-hidden="true" hidden>
+      <div>Content for third tab goes here.</div>
+    </div>
+</div>

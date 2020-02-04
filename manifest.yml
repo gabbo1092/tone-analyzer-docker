@@ -1,0 +1,7 @@
+---
+applications:
+  name: tone-analyzer-demo
+  command: npm start
+  path: .
+  instances: 2
+  memory: 256MB

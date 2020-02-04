@@ -1,0 +1,21 @@
+{
+  "verifyConditions": [
+    "@semantic-release/changelog",
+    "@semantic-release/npm",
+    "@semantic-release/git",
+    "@semantic-release/github",
+    "semantic-release-docker"
+  ],
+  "prepare": [
+    "@semantic-release/changelog",
+    "@semantic-release/git",
+    "@semantic-release/npm"
+  ],
+  "publish": [
+    "@semantic-release/github",
+    {
+      "path": "semantic-release-docker",
+      "name": "ibmwatson/tone-analyzer-nodejs"
+    }
+  ]
+}

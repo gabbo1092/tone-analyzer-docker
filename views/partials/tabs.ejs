@@ -19,7 +19,7 @@
       <li class="bx--tabs__nav-item " data-target=".tab-3-default" role="tab" >
         <a tabindex="0" id="tab-link-3-default" class="bx--tabs__nav-link" href="javascript:void(0)" role="tab" aria-controls="tab-panel-3-default">
             <img src='https://www.ovh.co.uk/images/hosting/postgreSQL/postgreSQL.jpg' style='margin-top:12px; margin-right:5px;width:25px; float:left;'/>
-            Speeches in postgres
+            Speeches in Postgres
         </a>
       </li>
     </ul>
@@ -32,12 +32,16 @@
         <$- include('demo_body') $>
 
     </div>
-    <div id="tab-panel-2-default" class="tab-2-default" role="tabpanel" aria-labelledby="tab-link-2-default" aria-hidden="true" hidden>
-        
+    <div id="tab-panel-2-default" class="tab-2-default" value="own-text" role="tabpanel" aria-labelledby="tab-link-2-default" aria-hidden="true" hidden>
+
         <$- include('freeform_body') $>
 
     </div>
     <div id="tab-panel-3-default" class="tab-3-default" role="tabpanel" aria-labelledby="tab-link-3-default" aria-hidden="true" hidden>
-      <div>Content for third tab goes here.</div>
+      
+        <$- include('postgres_body') $>
+
     </div>
 </div>
+
+

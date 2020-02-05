@@ -15,10 +15,10 @@
         <label class="base--inline-label input--radio-label" for="input-lang-fr"><$= __('radio-input-lang-fr') $></label>
         <hr class="base--hr input--hr">
         <div class="panel">
-          <textarea class="base--textarea input--textarea" rows="7"></textarea>
+          <textarea class="sampletextarea base--textarea input--textarea" rows="7"></textarea>
         </div>
         <div class="input--submit-button-container">
-          <button class="base--button input--submit-button" type="submit"><$= __('button-analyze') $></button>
+          <button class="sampletextsubmit base--button input--submit-button" type="submit"><$= __('button-analyze') $></button>
         </div>
       </div>
 
@@ -32,126 +32,5 @@
         <div class="error--message"></div>
       </div>
 
-      <div class="output">
-        <h2 class="base--h2"><$= __('header-output') $></h2>
-        <p class="base--p output--document-description">
-          <$= __( 'output-description') $>
-        </p>
-        <p class="base--p output--document-description">
-          <$= __( 'output-description-interpret') $>
-            <a class="base--a" target="_blank" href="https://cloud.ibm.com/docs/services/tone-analyzer/using-tone.html#using-the-general-purpose-endpoint">
-              <$= __( 'output-description-understand-score') $>
-            </a>.</p>
-        <h3 class="base--h3 output--document-title"><$= __('header-document') $></h3>
-
-        <div class="summary--row">
-          <div class="summary--emotion">
-            <h5 class="base--h5 summary--header"><$= __('header-tones') $></h5>
-            <div class="document--warning"></div>
-            <div class="summary-emotion-graph bar-graph"></div>
-          </div>
-        </div>
-        <div class="summary-row">
-          <span class="icon-hyperlink summary-view-code-button">
-  					<img class="icon icon-code" src="images/icons/code.svg" />
-  					<button class="base--a icon-hyperlink--button_BLANK js-toggle-summary-json" href="">
-  						<span class="js-toggle-summary-json_show"><$= __('summary-view-json') $></span>
-          <span class="js-toggle-summary-json_hide"><$= __('summary-hide-json') $></span>
-          </button>
-          </span>
-        </div>
-        <div class="summary-json js-summary-json">
-          <pre class="base--pre json--pre language-javascript">
-            <code class="base--code json--code language-javascript"></code>
-          </pre>
-        </div>
-        <h3 class="base--h3 output--sentence-title" style="padding-left: 0rem;"><$= __('header-sentence') $></h3>
-        <p class="base--p output--sentence-description">
-          <$= __( 'output-sentence-description') $>
-        </p>
-        <div class="sentences">
-          <div class="sentences--filters filters">
-            <h3 class="base--h3" style="padding-left: 0rem;"><$= __('header-tones') $></h3>
-            <div class="filters--emotion"></div>
-          </div>
-          <div class="sentences--sentence-views sentence-views">
-            <div class="tab-panels sentence-views--tab-panels" role="tabpanel">
-              <ul class="tab-panels--tab-list" role="tablist">
-                <li class="tab-panels--tab-list-item base--li" role="presentation">
-                  <a class="tab-panels--tab base--a active" href="#panel-original-text" aria-controls="panel-original-text" role="tab">
-                    <$= __( 'label-in-context') $>
-                  </a>
-                </li>
-              </ul>
-              <div class="sentence-views--tab-content tab-panels--tab-content">
-                <div id="panel-original-text" class="sentence-views--tab-pane tab-panels--tab-pane active" role="tab-panel">
-                  <div class="original-text">
-                    <div class="original-text--description"></div>
-                    <div class="original-text--legend"></div>
-                    <div class="original-text--texts-container">
-                      <div class="original-text--texts"></div>
-                    </div>
-                  </div>
-                </div>
-                <div id="panel-sentence-rank" class="sentence-views--tab-pane tab-panels--tab-pane" role="tab-panel">
-                  <div class="sentence-rank">
-                    <div class="sentence-rank--legend">
-                      <input role="checkbox" class="base--checkbox sentence-rank--checkbox" type="checkbox" id="sort-sentences" name="cb" value="">
-                      <label class="base--inline-label sentence-rank--sort" for="sort-sentences">
-                        <span class="sentence-rank--sort-ascending">Ascending<i class="icon icon-down-arrow"></i></span>
-                        <span class="sentence-rank--sort-descending">Descending<i class="icon icon-down-arrow icon_flipped"></i></span>
-                      </label>
-                    </div>
-                    <div class="sentence-rank--table-container">
-                      <table class="base--table sentence-rank--table">
-                      </table>
-                    </div>
-                    <div class="sentence-rank--small-block">
-                      <small class="base--small">
-                        In sentences_tone, each sentence_id receives a raw_score for each tone in a category.  Understand how to normalize raw scores or customize thresholds for your use case in the <a class="base--a" href="http://www.ibm.com/watson/developercloud/doc/tone-analyzer/">Documentation</a>.
-                      </small>
-                    </div>
-                  </div>
-                </div>
-                <div id="panel-json" class="sentence-views--tab-pane tab-panels--tab-pane" role="tab-panel">
-                  <div class="json">
-                    <pre class="base--pre json--pre language-javascript">
-                      <code class="base--code json--code language-javascript"></code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-              <!-- .tab-panels--tab-content -->
-            </div>
-            <!-- .tab-panels -->
-          </div>
-          <!-- .sentences--sentence-views -->
-
-        </div>
-
-        <div class="summary-row">
-          <span class="icon-hyperlink sentence-summary-view-code-button">
-  					<img class="icon icon-code" src="images/icons/code.svg" />
-  					<button class="base--a icon-hyperlink--button_BLANK js-toggle-sentence-summary-json" href="">
-  						<span class="js-toggle-sentence-summary-json_show"><$= __('summary-view-json') $></span>
-          <span class="js-toggle-sentence-summary-json_hide"><$= __('summary-hide-json') $></span>
-          </button>
-          </span>
-        </div>
-
-        <div class="summary-json js-sentence-summary-json">
-          <pre class="base--pre json--pre language-javascript">
-            <code class="base--code json--code language-javascript"></code>
-          </pre>
-        </div>
-        <!-- .sentences -->
-        <div class="output--reset icon-hyperlink">
-          <span class="icon icon-reset"></span>
-          <button class="base--a output--reset-button icon-hyperlink--button icon-hyperlink--button_BLANK" href="" type="reset">
-            <$= __('button-reset') $>
-          </button>
-        </div>
-        <div class="original-text--tooltip-container original-text--tooltip-container_hidden"></div>
-      </div>
     </article>
   </div>

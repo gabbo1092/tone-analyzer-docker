@@ -56,10 +56,16 @@ function allReady(thresholds, sampleText) {
     $error = $('.error'),
     $errorMessage = $('.error--message'),
     $inputRadio = $('.input--radio'),
+    $tabLink1Default = $('#tab-link-1-default'),
+    $tabLink2Default = $('#tab-link-2-default'),
     $displayInputRadioLang = $('.own-text-language-selector-radio'),
     $inputRadioLang = $('.input--radio--lang'),
-    $textarea = $('.input--textarea'),
-    $submitButton = $('.input--submit-button'),
+    $sampleTextarea = $('.sampletextarea'),
+    $freeTextarea = $('.freeformtextarea'),
+    $postgresTextarea = $('.postgrestextarea'),
+    $sampleSubmitButton = $('.sampletextsubmit'),
+    $freeSubmitButton = $('.freeformsubmit'),
+    $postgresSubmitButton = $('.postgressubmit'),
     $emotionGraph = $('.summary-emotion-graph'),
     $summaryJsonButton = $('.js-toggle-summary-json'),
     $summaryJson = $('.js-summary-json'),
@@ -106,7 +112,7 @@ function allReady(thresholds, sampleText) {
 
     var emotionTone = data.document_tone.tones.slice(0),
       selectedSample = $('input[name=rb]:checked').val(),
-      selectedSampleText = $textarea.val(),
+      selectedSampleText = $sampleTextarea.val(),
       sentences, sentenceTone = [],
       app;
 
@@ -468,7 +474,7 @@ function allReady(thresholds, sampleText) {
    * @return {undefined}
    */
   function updateTextarea(value) {
-    $textarea.val(sampleText[value]);
+    $sampleTextarea.val(sampleText[value]);
   }
 
   /**
@@ -487,14 +493,34 @@ function allReady(thresholds, sampleText) {
   /**
    * Submit button click event
    */
-  $submitButton.click(function() {
+  $sampleSubmitButton.click(function() {
     $input.show();
     $loading.show();
     $output.hide();
     $error.hide();
     scrollTo($loading);
     lastSentenceID = null;
-    getToneAnalysis($textarea.val());
+    getToneAnalysis($sampleTextarea.val());
+  });
+
+
+  $freeSubmitButton.click(function() {
+    $input.show();
+    $loading.show();
+    $output.hide();
+    $error.hide();
+    scrollTo($loading);
+    lastSentenceID = null;
+    getToneAnalysis($freeTextarea.val());
+  });
+
+  $postgresSubmitButton.click(function() {
+    $input.show();
+    $loading.show();
+    $output.hide();
+    $error.hide();
+    scrollTo($loading);
+    lastSentenceID = null;
   });
 
   /**
@@ -506,18 +532,44 @@ function allReady(thresholds, sampleText) {
     $('input:radio[name=rb][value=' + $(this).val() + ']').prop('checked', true);
 
     //Display Language options for own-text input option with default language as english
-    if (selectedInputSample === 'own-text') {
-      $('input:radio[name=rb-lang][value=en]').prop('checked', true);
-      $displayInputRadioLang.removeClass('original-text--tooltip-container_hidden');
-    } else {
-      $displayInputRadioLang.addClass('original-text--tooltip-container_hidden');
-      if (selectedInputSample === 'review-fr') {
-        selectedLang = 'fr';
-      }
+    $displayInputRadioLang.addClass('original-text--tooltip-container_hidden');
+    if (selectedInputSample === 'review-fr') {
+      selectedLang = 'fr';
     }
     updateTextarea($(this).val());
-
   });
+
+  $tabLink1Default.click(function() {
+    selectedLang = 'en';
+    if ($('input:radio[name=rb][value=tweets]').prop('checked')){
+        selectedInputSample = 'tweets';
+    } else if ($('input:radio[name=rb][value=review]').prop('checked')){
+        selectedInputSample = 'review';
+    } else if 
+    ($('input:radio[name=rb][value=email]').prop('checked')){
+        selectedInputSample = 'email';
+    } else if ($('input:radio[name=rb][value=review-fr]').prop('checked')){
+        selectedInputSample = 'review-fr';
+    }
+
+    //Display Language options for own-text input option with default language as english
+    $displayInputRadioLang.addClass('original-text--tooltip-container_hidden');
+    if (selectedInputSample === 'review-fr') {
+      selectedLang = 'fr';
+    }
+    updateTextarea(selectedInputSample);
+  });
+
+  $tabLink2Default.click(function() {
+    selectedLang = 'en';
+    selectedInputSample = 'own-text';
+
+    //Display Language options for own-text input option with default language as english
+    $('input:radio[name=rb-lang][value=en]').prop('checked', true);
+    $displayInputRadioLang.removeClass('original-text--tooltip-container_hidden');
+
+    updateTextarea($(this).val());
+  }); 
 
   /**
    * Language Input radio button click event for 'own-text' input option

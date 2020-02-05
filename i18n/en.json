@@ -75,5 +75,6 @@
 	"error-401": "Not Authorized",
 	"error-429": "You've sent a lot of requests in a short amount of time. As the CPU cores cool off a bit, wait a few seonds before sending more requests.",
 	"error-500": "Missing required parameters: text",
-	"header-ta": "header-ta"
+	"header-ta": "header-ta",
+	"header-words": "header-words"
 }

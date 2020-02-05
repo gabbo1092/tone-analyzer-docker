@@ -1825,6 +1825,7 @@ pre[class^="language-"]>code[class^="language-"], pre[class^="language-"]>code[c
   padding-top: 1rem;
   border: none;
   height: 100%;
+  min-height: 30rem;
 }
 
 .sentence-views--tab-content {
@@ -1992,6 +1993,7 @@ pre[class^="language-"]>code[class^="language-"], pre[class^="language-"]>code[c
   padding: 1rem;
   overflow-y: auto;
   height: calc(100% - 8rem);
+  min-height: 10rem;
   margin-top: 0rem;
 }
 
@@ -2728,6 +2730,7 @@ HEADER
         overflow: hidden;
         position: absolute;
         width: 400vw;
+        min-width:5000px;
         bottom: -10px;
     }
     .wave-bar {
@@ -2822,7 +2825,7 @@ HEADER
 
 @media (min-width: 768px) {
 
-    .bx--tabs, .header-text{
+    .bx--tabs, .header-text, .output {
         width: 760px;
         margin: 0rem auto;
     }
@@ -2830,7 +2833,7 @@ HEADER
 
 @media (min-width: 1200px) {
 
-    .bx--tabs, .header-text{
+    .bx--tabs, .header-text, .output {
         width: 993px;
         margin: 0rem auto;
     }
@@ -2855,3 +2858,14 @@ nav b {
     color: black;
 }
 
+
+
+@media (max-width: 768px) {
+
+    .page-container  {
+        height: 250px;
+    }
+    .tabs {
+        margin-top: 250px !important;
+    }
+}

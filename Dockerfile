@@ -7,7 +7,7 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 EXPOSE 8030
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
 
 # WORKDIR /app
 

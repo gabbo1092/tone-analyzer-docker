@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:10
 RUN mkdir /tone-analyzer-docker
 ADD . /tone-analyzer-docker
-run npm install
+RUN npm install
 EXPOSE 3000
 CMD ["npm", "start"]
 # WORKDIR /app
